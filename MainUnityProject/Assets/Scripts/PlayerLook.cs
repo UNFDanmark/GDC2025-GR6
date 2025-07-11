@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerLook : MonoBehaviour
@@ -10,6 +11,10 @@ public class PlayerLook : MonoBehaviour
     public float maxVerticalAngle;
     float verticalAngle;
     float horizontalAngle;
+
+    public Transform facingPoint;
+    public Vector3 lookDirection3D;
+    public Vector3 lookDirection2D;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,6 +32,7 @@ public class PlayerLook : MonoBehaviour
         verticalAngle = Mathf.Clamp(verticalAngle, minVerticalAngle, maxVerticalAngle);
         horizontalAngle += mouseDelta.x * xSensitivity;
         transform.rotation = Quaternion.Euler(verticalAngle, horizontalAngle, 0f);
-        
+        lookDirection3D = facingPoint.transform.position - transform.position;
+        lookDirection2D = new Vector3(lookDirection3D.x, 0, lookDirection3D.z).normalized;
     }
 }
