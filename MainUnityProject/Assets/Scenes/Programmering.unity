@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  fallSpeed: 15
   playerLook: {fileID: 330585548}
   moveInput:
     m_Name: Move Input

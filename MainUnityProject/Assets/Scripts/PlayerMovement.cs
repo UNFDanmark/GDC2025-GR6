@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public float fallSpeed;
 
     public PlayerLook playerLook;
     public InputAction moveInput;
@@ -23,5 +24,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 lookDirection = playerLook.lookDirection2D;
         Vector3 sideDirection = Vector3.Cross(lookDirection, Vector3.up);
         characterController.Move(speed * moveDirection.y * Time.deltaTime * lookDirection - speed * moveDirection.x * Time.deltaTime * sideDirection);
+        characterController.Move(fallSpeed * Time.deltaTime * Vector3.down);
     }
 }
