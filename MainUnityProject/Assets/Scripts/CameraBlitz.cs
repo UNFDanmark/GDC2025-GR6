@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 
 public class CameraBlitz : MonoBehaviour
@@ -8,6 +9,8 @@ public class CameraBlitz : MonoBehaviour
     public float blitzCooldown;
     public AnimationCurve curve;
 
+    public Light light;
+    
     public InputAction blitzInput;
     float blitzAnimationProgress;
     float blitzCooldownProgress;
@@ -16,7 +19,7 @@ public class CameraBlitz : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        blitzInput.Enable();
     }
 
     // Update is called once per frame
@@ -24,10 +27,20 @@ public class CameraBlitz : MonoBehaviour
     {
         blitzCooldownProgress -= Time.deltaTime;
         blitzAnimationProgress -= Time.deltaTime;
-        if (blitzInput.WasPressedThisFrame())
+        if (blitzInput.WasPressedThisFrame() && blitzCooldownProgress <= 0)
         {
             BeginBlitz();
         }
+
+        if (playingAnimation)
+        {
+            SetIntensity(curve.Evaluate(1-blitzAnimationProgress / blitzAnimationDuration) * maxBlitz);
+        }
+    }
+
+    void SetIntensity(float v)
+    {
+        light.intensity = v;
     }
 
     void BeginBlitz()
