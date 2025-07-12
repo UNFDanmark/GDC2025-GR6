@@ -688,6 +688,7 @@ MonoBehaviour:
       m_Action: Blitz Input
       m_Flags: 0
     m_Flags: 0
+  playerVision: {fileID: 3993498692739301414}
 --- !u!1 &7655187129711555281
 GameObject:
   m_ObjectHideFlags: 0
