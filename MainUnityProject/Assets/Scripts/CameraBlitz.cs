@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,8 @@ public class CameraBlitz : MonoBehaviour
     public Light light;
     
     public InputAction blitzInput;
+    public PlayerDetectVision playerVision;
+    public CameraCamera cameraCamera;
     float blitzAnimationProgress;
     float blitzCooldownProgress;
     bool playingAnimation;
@@ -35,6 +38,10 @@ public class CameraBlitz : MonoBehaviour
         if (playingAnimation)
         {
             SetIntensity(curve.Evaluate(1-blitzAnimationProgress / blitzAnimationDuration) * maxBlitz);
+            if (blitzAnimationProgress > blitzAnimationDuration)
+            {
+                playingAnimation = false;
+            }
         }
     }
 
@@ -48,5 +55,8 @@ public class CameraBlitz : MonoBehaviour
         blitzCooldownProgress = blitzCooldown;
         blitzAnimationProgress = blitzAnimationDuration;
         playingAnimation = true;
+        playerVision.Detect(true);
+        cameraCamera.gameObject.SetActive(true);
+        StartCoroutine(cameraCamera.TakePicture());
     }
 }
