@@ -4,16 +4,25 @@ using Random = UnityEngine.Random;
 
 public class PlayerAudio : MonoBehaviour
 {
-    public AudioSource HardFootStep;
+    public AudioSource StepSource;
     public AudioClip FootStepClip;
-    
-    public float Counter;
 
-    private float PitchValue = 1.0f;
+    float PitchValue = 1.0f;
 
     public float PitchRange;
     
     public float StepSpeed;
+    
+    public float Counter;
+    
+    [Space(10)] public AudioSource ShutterSource;
+    public AudioClip CameraShutter;
+
+    float CameraPitchValue = 1.0f;
+    
+    public float CameraPitchRange;
+
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,8 +39,8 @@ public class PlayerAudio : MonoBehaviour
     void PlayFootSteps()
     {
         PitchValue = Random.Range(1 - PitchRange, 1 + PitchRange);
-        HardFootStep.pitch = PitchValue; 
-        HardFootStep.PlayOneShot(FootStepClip);
+        StepSource.pitch = PitchValue; 
+        StepSource.PlayOneShot(FootStepClip);
     }
 
     public void Moving()
@@ -45,5 +54,12 @@ public class PlayerAudio : MonoBehaviour
         {
             Counter -= Time.deltaTime; 
         }
+    }
+
+    public void PlayCameraAudio()
+    {
+        CameraPitchValue = Random.Range(1 - CameraPitchRange, 1 + CameraPitchRange);
+        ShutterSource.pitch = CameraPitchValue;
+        ShutterSource.PlayOneShot(CameraShutter);
     }
 }
