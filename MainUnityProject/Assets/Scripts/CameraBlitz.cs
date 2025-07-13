@@ -15,6 +15,7 @@ public class CameraBlitz : MonoBehaviour
     public InputAction blitzInput;
     public PlayerDetectVision playerVision;
     public CameraCamera cameraCamera;
+    public Animator animator;
     float blitzAnimationProgress;
     float blitzCooldownProgress;
     bool playingAnimation;
@@ -58,5 +59,6 @@ public class CameraBlitz : MonoBehaviour
         playerVision.Detect(true);
         cameraCamera.gameObject.SetActive(true);
         StartCoroutine(cameraCamera.TakePicture());
+        animator.SetTrigger("Press");
     }
 }
