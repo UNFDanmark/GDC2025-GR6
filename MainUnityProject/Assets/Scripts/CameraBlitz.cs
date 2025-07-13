@@ -19,11 +19,14 @@ public class CameraBlitz : MonoBehaviour
     float blitzAnimationProgress;
     float blitzCooldownProgress;
     bool playingAnimation;
+
+    PlayerAudio cameraAudio;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         blitzInput.Enable();
+        cameraAudio = GameObject.Find("Player").GetComponent<PlayerAudio>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class CameraBlitz : MonoBehaviour
         blitzAnimationProgress -= Time.deltaTime;
         if (blitzInput.WasPressedThisFrame() && blitzCooldownProgress <= 0)
         {
+            cameraAudio.PlayCameraAudio();
             BeginBlitz();
         }
 
