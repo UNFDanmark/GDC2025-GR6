@@ -14,7 +14,7 @@ TagManager:
   - CaresIfBeingSeen
   - DoesntBlockSight
   - OnlyVisibleOnCamera
-  - 
+  - NavMesh
   - 
   - 
   - 

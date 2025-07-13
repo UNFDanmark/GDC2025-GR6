@@ -1,14 +1,22 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+    
     public float speed;
     public float fallSpeed;
 
     public PlayerLook playerLook;
     public InputAction moveInput;
     PlayerAudio playerAudio;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     CharacterController characterController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

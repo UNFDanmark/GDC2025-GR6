@@ -37,18 +37,19 @@ public class PlayerDetectVision : MonoBehaviour
         {
             CameraListener.listeners[i].OnResetSeen();
         }
+        List<CameraListener> thingsSeen = new List<CameraListener>();
         for (int i = 0; i < verticalRayCount; i++)
         {
             for (int j = 0; j < horizontalRayCount; j++)
             {
-                List<CameraListener> thingsSeen = new List<CameraListener>();
                 bool hitSomething = Physics.Raycast(transform.position, toLeftCorner + (rightStep * j + downStep * i), out RaycastHit hit, 200f, seenLayers);
                 if (hitSomething && hit.collider.TryGetComponent<CameraListener>(out CameraListener listener))
                 {
                     listener.OnCouldBeSeen();
-                    if (takingPicture)
+                    if (takingPicture && !thingsSeen.Contains(listener))
                     {
                         listener.OnTakePicture();
+                        thingsSeen.Add(listener);
                     }
                 }
             }

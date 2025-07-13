@@ -3,6 +3,7 @@ using UnityEngine;
 public class AffectedByCamera : CameraListener
 {
     public CameraAction[] actions;
+    int index;
 
     public static void DoAction(CameraAction action)
     {
@@ -18,5 +19,21 @@ public class AffectedByCamera : CameraListener
                 Destroy(action.affectedObject);
                 break;
         }
+    }
+    
+    public override void OnTakePicture()
+    {
+        bool keepGoing = false;
+        do
+        {
+            if (index == actions.Length)
+                break;
+            DoAction(actions[index]);
+            keepGoing = actions[index].continueToNextAction;
+            if (actions[index].action == CameraAction.CameraFunction.Jump)
+                index = actions[index].jumpTo - 1;
+            index++;
+
+        } while (keepGoing);
     }
 }
