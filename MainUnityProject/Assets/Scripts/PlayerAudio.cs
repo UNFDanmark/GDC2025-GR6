@@ -20,21 +20,26 @@ public class PlayerAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Counter <= 0)
-        {
-            PlayFootSteps();
-            Counter = 0.8f;
-        } 
-        if(Counter > 0)
-        {
-           Counter -= Time.deltaTime; 
-        }
+        
     }
     
     void PlayFootSteps()
     {
-        PitchValue = Random.Range(0.7f, 1.7f);
+        PitchValue = Random.Range(0.7f, 1.3f);
         HardFootStep.pitch = PitchValue; 
         HardFootStep.PlayOneShot(FootStepClip);
+    }
+
+    public void Moving()
+    {
+        if(Counter <= 0)
+        {
+            PlayFootSteps();
+            Counter = 1.0f;
+        } 
+        if(Counter > 0)
+        {
+            Counter -= Time.deltaTime; 
+        }
     }
 }

@@ -401,6 +401,14 @@ PrefabInstance:
       propertyPath: FootStepClip
       value: 
       objectReference: {fileID: 8300000, guid: 86470e5947782614ab371f171edf188a, type: 3}
+    - target: {fileID: 6276638419043585215, guid: 77ff3cb0c12131148a4943a0d9216f31, type: 3}
+      propertyPath: m_Volume
+      value: 0.172
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276638419043585215, guid: 77ff3cb0c12131148a4943a0d9216f31, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8204391899649951324, guid: 77ff3cb0c12131148a4943a0d9216f31, type: 3}
       propertyPath: m_Name
       value: Player
