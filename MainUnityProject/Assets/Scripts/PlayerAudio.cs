@@ -33,7 +33,7 @@ public class PlayerAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Moving();
+        
     }
     
     void PlayFootSteps()
