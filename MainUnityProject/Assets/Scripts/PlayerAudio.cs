@@ -9,7 +9,11 @@ public class PlayerAudio : MonoBehaviour
     
     public float Counter;
 
-    public float PitchValue = 1.0f;
+    private float PitchValue = 1.0f;
+
+    public float PitchRange;
+    
+    public float StepSpeed;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,12 +24,12 @@ public class PlayerAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Moving();
     }
     
     void PlayFootSteps()
     {
-        PitchValue = Random.Range(0.7f, 1.3f);
+        PitchValue = Random.Range(1 - PitchRange, 1 + PitchRange);
         HardFootStep.pitch = PitchValue; 
         HardFootStep.PlayOneShot(FootStepClip);
     }
@@ -35,7 +39,7 @@ public class PlayerAudio : MonoBehaviour
         if(Counter <= 0)
         {
             PlayFootSteps();
-            Counter = 1.0f;
+            Counter = StepSpeed;
         } 
         if(Counter > 0)
         {
