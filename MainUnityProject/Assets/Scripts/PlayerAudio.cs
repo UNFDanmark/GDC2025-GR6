@@ -33,7 +33,6 @@ public class PlayerAudio : MonoBehaviour
     
     void PlayFootSteps()
     {
-        if (FootStepClip is null) return;
         PitchValue = Random.Range(0.7f, 1.7f);
         HardFootStep.pitch = PitchValue; 
         HardFootStep.PlayOneShot(FootStepClip);
