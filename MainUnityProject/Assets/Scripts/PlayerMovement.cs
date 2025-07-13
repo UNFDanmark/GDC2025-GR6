@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerLook playerLook;
     public InputAction moveInput;
 
-    CharacterController characterController;
+    public CharacterController characterController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
