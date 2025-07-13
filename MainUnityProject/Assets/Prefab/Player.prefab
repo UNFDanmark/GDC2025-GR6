@@ -1280,10 +1280,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5372332e75261045985fde4917da3a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HardFootStep: {fileID: 6276638419043585215}
+  StepSource: {fileID: 0}
   FootStepClip: {fileID: 0}
+  PitchRange: 0
+  StepSpeed: 0
   Counter: 0
-  PitchValue: 1
+  ShutterSource: {fileID: 0}
+  CameraShutter: {fileID: 0}
+  CameraPitchRange: 0
 --- !u!82 &6276638419043585215
 AudioSource:
   m_ObjectHideFlags: 0
