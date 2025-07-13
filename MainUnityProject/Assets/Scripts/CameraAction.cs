@@ -1,16 +1,11 @@
 using UnityEngine;
 
-public class CameraAction : MonoBehaviour
+[System.Serializable]
+public class CameraAction
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public enum CameraFunction { Destroy, Activate, DeActivate }
+    
+    public bool continueToNextAction;
+    public GameObject affectedObject;
+    public CameraFunction action;
 }
