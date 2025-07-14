@@ -42,7 +42,7 @@ public class PlayerDetectVision : MonoBehaviour
         {
             for (int j = 0; j < horizontalRayCount; j++)
             {
-                bool hitSomething = Physics.Raycast(transform.position, toLeftCorner + (rightStep * j + downStep * i), out RaycastHit hit, 200f, seenLayers);
+                bool hitSomething = Physics.Raycast(transform.position, toLeftCorner + (rightStep * j + downStep * i), out RaycastHit hit, 50f, seenLayers);
                 if (hitSomething && hit.collider.TryGetComponent<CameraListener>(out CameraListener listener))
                 {
                     listener.OnCouldBeSeen();
@@ -69,7 +69,7 @@ public class PlayerDetectVision : MonoBehaviour
         {
             for (int j = 0; j < horizontalRayCount; j++)
             {
-                bool hitSomething = Physics.Raycast(transform.position, toLeftCorner + (rightStep * j + downStep * i), 200f, seenLayers);
+                bool hitSomething = Physics.Raycast(transform.position, toLeftCorner + (rightStep * j + downStep * i), 50f, seenLayers);
                 if (!hitSomething)
                 {
                     Gizmos.color = Color.crimson;
@@ -78,7 +78,7 @@ public class PlayerDetectVision : MonoBehaviour
                 {
                     Gizmos.color = Color.chartreuse;
                 }
-                Gizmos.DrawRay(transform.position, (toLeftCorner + (rightStep * j + downStep * i)) * 10f);
+                Gizmos.DrawRay(transform.position, (toLeftCorner + (rightStep * j + downStep * i)).normalized * 50f);
             }
         }
     }

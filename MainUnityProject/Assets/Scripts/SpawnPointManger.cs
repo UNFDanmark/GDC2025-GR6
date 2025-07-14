@@ -6,6 +6,8 @@ public class SpawnPointManger : MonoBehaviour
     public static SpawnPointManger instance;
     public Transform[] spawnPoints;
     public Transform furthestPoint;
+    public float spawnTime;
+    float t;
 
     void Awake()
     {
@@ -19,6 +21,13 @@ public class SpawnPointManger : MonoBehaviour
 
     void Update()
     {
+        t -= Time.deltaTime;
+        if (t < 0 && furthestPoint != null)
+        {
+            t = spawnTime;
+            MonsterScript.instance.Unscare();
+        }
+        
         Transform furthest = null;
         float furthestDist = 0f;
         for (int i = 0; i < spawnPoints.Length; i++)
@@ -31,6 +40,6 @@ public class SpawnPointManger : MonoBehaviour
         }
 
         furthestPoint = furthest;
+        
     }
-    
 }
