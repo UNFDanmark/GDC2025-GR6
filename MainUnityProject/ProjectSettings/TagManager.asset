@@ -15,8 +15,8 @@ TagManager:
   - DoesntBlockSight
   - OnlyVisibleOnCamera
   - NavMesh
-  - 
-  - 
+  - Camera
+  - CameraWallChecker
   - 
   - 
   - 

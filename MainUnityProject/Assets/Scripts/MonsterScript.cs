@@ -11,6 +11,7 @@ public class MonsterScript : CameraListener
     public float farAwaySpeed;
     public float nearSpeed;
     public float nearDistance;
+    public float jumpscareDistance;
 
     public bool scared;
     bool farAwayLastTime;
@@ -29,12 +30,19 @@ public class MonsterScript : CameraListener
 
     void FollowPlayer()
     {
+        if (PlayerMovement.instance.jumpscared) return;
+        
         agent.SetDestination(PlayerMovement.instance.transform.position);
         
         if (agent.remainingDistance > nearDistance)
         {
             agent.speed = farAwaySpeed;
             farAwayLastTime = true;
+        }
+        else if (agent.remainingDistance < jumpscareDistance && agent.remainingDistance != 0)
+        {
+            PlayerMovement.instance.JumpScare();
+            agent.SetDestination(transform.position);
         }
         else
         {

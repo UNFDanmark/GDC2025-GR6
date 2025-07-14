@@ -21,6 +21,7 @@ public class CameraBlitz : MonoBehaviour
     bool playingAnimation;
 
     PlayerAudio cameraAudio;
+    public WallChecker wallChecker;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +35,7 @@ public class CameraBlitz : MonoBehaviour
     {
         blitzCooldownProgress -= Time.deltaTime;
         blitzAnimationProgress -= Time.deltaTime;
-        if (blitzInput.WasPressedThisFrame() && blitzCooldownProgress <= 0)
+        if (blitzInput.WasPressedThisFrame() && blitzCooldownProgress <= 0 && wallChecker.touching.Count == 0)
         {
             cameraAudio.PlayCameraAudio();
             BeginBlitz();

@@ -150,6 +150,8 @@ MonoBehaviour:
   farAwaySpeed: 50
   nearSpeed: 6
   nearDistance: 25
+  jumpscareDistance: 6
+  scared: 0
 --- !u!54 &3519287237222466644
 Rigidbody:
   m_ObjectHideFlags: 0

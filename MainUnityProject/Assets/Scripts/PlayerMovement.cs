@@ -11,7 +11,9 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerLook playerLook;
     public InputAction moveInput;
+    public bool jumpscared;
     PlayerAudio playerAudio;
+    public GameObject cameraObject;
 
     void Awake()
     {
@@ -30,11 +32,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (jumpscared) return;
         Vector2 moveDirection = moveInput.ReadValue<Vector2>();
         if (moveDirection != Vector2.zero) playerAudio.Moving();
         Vector3 lookDirection = playerLook.lookDirection2D;
         Vector3 sideDirection = Vector3.Cross(lookDirection, Vector3.up);
         characterController.Move(speed * moveDirection.y * Time.deltaTime * lookDirection - speed * moveDirection.x * Time.deltaTime * sideDirection);
         characterController.Move(fallSpeed * Time.deltaTime * Vector3.down);
+    }
+
+    public void JumpScare()
+    {
+        Destroy(cameraObject);
+        jumpscared = true;
     }
 }
