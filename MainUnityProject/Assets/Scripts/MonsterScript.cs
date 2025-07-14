@@ -63,11 +63,11 @@ public class MonsterScript : CameraListener
         SpawnPointManger.instance.BeginRespawnTimer();
     }
 
-    public void Unscare()
+    public void Unscare(Transform spawnPoint)
     {
         scared = false;
         agent.enabled = true;
-        agent.Warp(SpawnPointManger.instance.furthestPoint.position);
+        agent.Warp(spawnPoint.position);
         collider.enabled = true;
         rb.linearVelocity = Vector3.down;
     }

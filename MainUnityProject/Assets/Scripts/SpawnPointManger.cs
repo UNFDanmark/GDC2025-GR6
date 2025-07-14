@@ -34,14 +34,15 @@ public class SpawnPointManger : MonoBehaviour
         t -= cameraPenalty;
     }
 
+    public void SpawnAt(Transform spawnPoint)
+    {
+        MonsterScript.instance.Unscare(spawnPoint);
+        unscared = true;
+    }
+
     void Update()
     {
         t -= Time.deltaTime;
-        if (t < 0 && furthestPoint != null && !unscared)
-        {
-            MonsterScript.instance.Unscare();
-            unscared = true;
-        }
         
         Transform furthest = null;
         float furthestDist = 0f;
@@ -56,5 +57,9 @@ public class SpawnPointManger : MonoBehaviour
 
         furthestPoint = furthest;
         
+        if (t < 0 && furthestPoint != null && !unscared)
+        {
+            SpawnAt(furthest);
+        }
     }
 }
