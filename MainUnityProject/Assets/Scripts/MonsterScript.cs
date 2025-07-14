@@ -59,6 +59,7 @@ public class MonsterScript : CameraListener
         agent.enabled = false;
         collider.enabled = false;
         rb.linearVelocity = (transform.position - PlayerMovement.instance.transform.position).normalized * farAwaySpeed;
+        SpawnPointManger.instance.BeginRespawnTimer();
     }
 
     public void Unscare()

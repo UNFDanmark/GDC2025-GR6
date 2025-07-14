@@ -1,12 +1,16 @@
 using System;
 using UnityEngine;
+using Random = System.Random;
 
 public class SpawnPointManger : MonoBehaviour
 {
     public static SpawnPointManger instance;
     public Transform[] spawnPoints;
     public Transform furthestPoint;
-    public float spawnTime;
+    public float spawnMinTime;
+    public float spawnMaxTime;
+    public float cameraPenalty;
+    public bool unscared;
     float t;
 
     void Awake()
@@ -19,13 +23,24 @@ public class SpawnPointManger : MonoBehaviour
         }
     }
 
+    public void BeginRespawnTimer()
+    {
+        t = UnityEngine.Random.Range(spawnMinTime, spawnMaxTime);
+        unscared = false;
+    }
+
+    public void PictureTaken()
+    {
+        t -= cameraPenalty;
+    }
+
     void Update()
     {
         t -= Time.deltaTime;
-        if (t < 0 && furthestPoint != null)
+        if (t < 0 && furthestPoint != null && !unscared)
         {
-            t = spawnTime;
             MonsterScript.instance.Unscare();
+            unscared = true;
         }
         
         Transform furthest = null;

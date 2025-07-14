@@ -65,5 +65,6 @@ public class CameraBlitz : MonoBehaviour
         cameraCamera.gameObject.SetActive(true);
         StartCoroutine(cameraCamera.TakePicture());
         animator.SetTrigger("Press");
+        SpawnPointManger.instance.PictureTaken();
     }
 }
