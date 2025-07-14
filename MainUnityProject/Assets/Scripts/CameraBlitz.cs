@@ -44,9 +44,10 @@ public class CameraBlitz : MonoBehaviour
         if (playingAnimation)
         {
             SetIntensity(curve.Evaluate(1-blitzAnimationProgress / blitzAnimationDuration) * maxBlitz);
-            if (blitzAnimationProgress > blitzAnimationDuration)
+            if (blitzAnimationProgress < 0)
             {
                 playingAnimation = false;
+                SetIntensity(0f);
             }
         }
     }
