@@ -4389,6 +4389,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 6702265490568873158, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 64105aa5e04c88649906e33aee160442, type: 2}
     - target: {fileID: 7578937033395115805, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
       propertyPath: curve.m_Curve.Array.data[2].time
       value: 1.0000465
