@@ -1247,7 +1247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints: []
   furthestPoint: {fileID: 0}
-  spawnTime: 20
+  spawnMinTime: 120
+  spawnMaxTime: 180
+  cameraPenalty: 10
+  unscared: 0
 --- !u!1 &1376225295
 GameObject:
   m_ObjectHideFlags: 0

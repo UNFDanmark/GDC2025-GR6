@@ -20,6 +20,7 @@ public class MonsterScript : CameraListener
         instance = this;
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+        OnTakePicture();
     }
 
     void Update()
