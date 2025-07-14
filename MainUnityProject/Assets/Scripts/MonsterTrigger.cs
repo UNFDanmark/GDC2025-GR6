@@ -9,6 +9,7 @@ public class MonsterTrigger : MonoBehaviour
         if (other.name == "Player")
         {
             SpawnPointManger.instance.SpawnAt(spawnPoint);
+            gameObject.SetActive(false);
         }
     }
 }
