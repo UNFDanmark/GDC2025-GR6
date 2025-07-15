@@ -23,5 +23,17 @@ public class MusicManager : MonoBehaviour
             MusicAudioSource.PlayOneShot(Title);
             SoundtrackNumberToPlay = 0;
         }
+        
+        if (SoundtrackNumberToPlay == 2)
+        {
+            MusicAudioSource.PlayOneShot(Intro);
+            SoundtrackNumberToPlay = 0;
+        }
+        
+        if (SoundtrackNumberToPlay == 3)
+        {
+            MusicAudioSource.PlayOneShot(Ambience);
+            SoundtrackNumberToPlay = 0;
+        }
     }
 }
