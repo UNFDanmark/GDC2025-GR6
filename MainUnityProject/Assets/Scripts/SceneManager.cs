@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManager  : MonoBehaviour
 {
-    
+    static float Sensitivity;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +19,12 @@ public class SceneManager  : MonoBehaviour
 
     public void NewGame()
     {
+        Sensitivity = Game
         UnityEngine.SceneManagement.SceneManager.LoadScene("Programmering");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
