@@ -26,7 +26,11 @@ public class AffectedByCamera : CameraListener
                 RenderSettings.ambientSkyColor = Color.black;
                 SpawnPointManger.instance.count = true;
                 break;
-            
+            case CameraAction.CameraFunction.CallBBGrl:
+                print("peepeepoopoo");
+                SpawnPointManger.instance.SpawnAt(SpawnPointManger.instance.furthestPoint);
+                PlayerMovement.instance.blitz.Break();
+                break;
         }
     }
     
