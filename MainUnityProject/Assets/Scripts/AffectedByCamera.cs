@@ -26,7 +26,8 @@ public class AffectedByCamera : CameraListener
                 RenderSettings.ambientSkyColor = Color.black;
                 SpawnPointManger.instance.count = true;
                 break;
-            
+            case CameraAction.CameraFunction.CallBBGirl:
+                break;
         }
     }
     
