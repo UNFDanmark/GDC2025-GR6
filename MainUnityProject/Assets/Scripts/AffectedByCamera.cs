@@ -18,6 +18,9 @@ public class AffectedByCamera : CameraListener
             case CameraAction.CameraFunction.Destroy:
                 Destroy(action.affectedObject);
                 break;
+            case CameraAction.CameraFunction.MakeTallyHallReference:
+                RenderSettings.fog = true;
+                break;
         }
     }
     
