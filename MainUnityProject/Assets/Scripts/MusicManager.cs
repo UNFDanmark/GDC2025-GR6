@@ -4,6 +4,8 @@ public class MusicManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public static MusicManager instance;
+
     public AudioSource MusicAudioSource;
 
     public AudioClip Title, Intro, Ambience;
@@ -12,7 +14,7 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-
+        instance = this;
     }
 
     // Update is called once per frame

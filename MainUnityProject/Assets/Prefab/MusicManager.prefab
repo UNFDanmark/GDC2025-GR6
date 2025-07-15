@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2911879317348437951}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.33701319, y: -1.65, z: 2.432391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,8 +48,8 @@ MonoBehaviour:
   MusicAudioSource: {fileID: 4264331239498101347}
   Title: {fileID: 8300000, guid: 01e91894b3a82754b92afb7ad1ba0c3b, type: 3}
   Intro: {fileID: 8300000, guid: 19a3123366310f84ba0e6d26c04421a6, type: 3}
-  Ambience: {fileID: 0}
-  SoundtrackNumberToPlay: 1
+  Ambience: {fileID: 8300000, guid: 070efc02e85a0544ca00ceb2ac150537, type: 3}
+  SoundtrackNumberToPlay: 3
 --- !u!82 &4264331239498101347
 AudioSource:
   m_ObjectHideFlags: 0

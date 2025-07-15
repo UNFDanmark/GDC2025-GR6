@@ -1,9 +1,12 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class AffectedByCamera : CameraListener
 {
     public CameraAction[] actions;
     int index;
+    bool doingSomething;
 
     public static void DoAction(CameraAction action)
     {
@@ -20,12 +23,22 @@ public class AffectedByCamera : CameraListener
                 break;
             case CameraAction.CameraFunction.MakeTallyHallReference:
                 RenderSettings.fog = true;
+                RenderSettings.ambientSkyColor = Color.black;
+                SpawnPointManger.instance.count = true;
                 break;
+            
         }
     }
     
     public override void OnTakePicture()
     {
+        if (doingSomething) return;
+        StartCoroutine(DoThing());
+    }
+
+    public IEnumerator DoThing()
+    {
+        doingSomething = true;
         bool keepGoing = false;
         do
         {
@@ -35,8 +48,12 @@ public class AffectedByCamera : CameraListener
             keepGoing = actions[index].continueToNextAction;
             if (actions[index].action == CameraAction.CameraFunction.Jump)
                 index = actions[index].jumpTo - 1;
+            if (actions[index].waitFor > 0)
+                yield return new WaitForSeconds(actions[index].waitFor);
             index++;
 
         } while (keepGoing);
+
+        doingSomething = false;
     }
 }

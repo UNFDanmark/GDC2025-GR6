@@ -12,6 +12,7 @@ public class SpawnPointManger : MonoBehaviour
     public float cameraPenalty;
     public bool unscared;
     float t;
+    public bool count;
 
     void Awake()
     {
@@ -43,6 +44,8 @@ public class SpawnPointManger : MonoBehaviour
     void Update()
     {
         t -= Time.deltaTime;
+        if (!count)
+            BeginRespawnTimer();
         
         Transform furthest = null;
         float furthestDist = 0f;

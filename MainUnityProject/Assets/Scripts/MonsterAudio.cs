@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MonsterAudio
+public class MonsterAudio : MonoBehaviour
 {
 
         public AudioSource MonsterAudioSource;
