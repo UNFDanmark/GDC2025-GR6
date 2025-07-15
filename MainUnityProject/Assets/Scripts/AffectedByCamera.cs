@@ -8,6 +8,11 @@ public class AffectedByCamera : CameraListener
     int index;
     bool doingSomething;
 
+    void Update()
+    {
+        wantsToBeSeen = index < actions.Length;
+    }
+
     public static void DoAction(CameraAction action)
     {
         switch (action.action)
@@ -37,7 +42,7 @@ public class AffectedByCamera : CameraListener
     public override void OnTakePicture()
     {
         if (doingSomething) return;
-        StartCoroutine(DoThing());
+            StartCoroutine(DoThing());
     }
 
     public IEnumerator DoThing()
@@ -55,7 +60,7 @@ public class AffectedByCamera : CameraListener
             if (actions[index].waitFor > 0)
                 yield return new WaitForSeconds(actions[index].waitFor);
             index++;
-
+            wantsToBeSeen = index < actions.Length;
         } while (keepGoing);
 
         doingSomething = false;

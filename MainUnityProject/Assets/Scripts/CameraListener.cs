@@ -6,6 +6,8 @@ public class CameraListener : MonoBehaviour
     public static List<CameraListener> listeners = new List<CameraListener>();
     public bool seen;
     public float distanceToRegisterPicture = 7f;
+    public bool wantsToBeSeen = true;
+    public float seeDist = 3.8f;
     bool drawGizmos;
 
     public virtual void Start()

@@ -18,6 +18,8 @@ public class CameraBlitz : MonoBehaviour
     public CameraCamera cameraCamera;
     public Animator animator;
     public GameObject brokenScreen;
+    public GameObject blinker;
+    public bool detectThinksTheresThingToDo;
     float blitzAnimationProgress;
     float blitzCooldownProgress;
     float breakProgress;
@@ -44,6 +46,11 @@ public class CameraBlitz : MonoBehaviour
             brokenScreen.SetActive(true);
         else
             brokenScreen.SetActive(false);
+
+        if (detectThinksTheresThingToDo)
+            blinker.SetActive(true);
+        else
+            blinker.SetActive(false);
         
         if (blitzInput.WasPressedThisFrame() && blitzCooldownProgress <= 0 && wallChecker.touching.Count == 0)
         {
@@ -70,7 +77,7 @@ public class CameraBlitz : MonoBehaviour
     {
         light.intensity = v;
         if (breakProgress > 0)
-            light.intensity = v / 6f;
+            light.intensity = v / 120f;
     }
 
     void BeginBlitz()

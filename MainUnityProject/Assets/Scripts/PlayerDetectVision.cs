@@ -46,14 +46,37 @@ public class PlayerDetectVision : MonoBehaviour
                 if (hitSomething && hit.collider.TryGetComponent<CameraListener>(out CameraListener listener))
                 {
                     listener.OnCouldBeSeen();
-                    if (takingPicture && !thingsSeen.Contains(listener) && (listener.transform.position - transform.position).magnitude < listener.distanceToRegisterPicture)
+                    Vector3 dif = listener.transform.position - transform.position;
+                    Vector3 dif2D = new Vector3(dif.x, 0, dif.z);
+                    
+                    if (!thingsSeen.Contains(listener) && dif2D.magnitude < listener.distanceToRegisterPicture)
                     {
-                        listener.OnTakePicture();
                         thingsSeen.Add(listener);
                     }
                 }
             }
         }
+
+        float closestVal = 0f;
+        CameraListener closestObj = null;
+        
+        for (int i = 0; i < thingsSeen.Count; i++)
+        {
+            if (thingsSeen[i].wantsToBeSeen && (transform.position - thingsSeen[i].transform.position).magnitude > closestVal)
+            {
+                closestVal = (transform.position - thingsSeen[i].transform.position).magnitude;
+                closestObj = thingsSeen[i];
+            }
+        }
+
+        if (closestObj != null)
+        {
+            PlayerMovement.instance.blitz.detectThinksTheresThingToDo = true;
+            print("sees");
+            if (takingPicture)
+                closestObj.OnTakePicture();
+        }
+        else PlayerMovement.instance.blitz.detectThinksTheresThingToDo = false;
     }
 
     void OnDrawGizmos()

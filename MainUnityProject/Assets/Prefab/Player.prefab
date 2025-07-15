@@ -1777,7 +1777,7 @@ MonoBehaviour:
   maxBlitz: 500
   blitzAnimationDuration: 1
   blitzCooldown: 1
-  breakDuration: 0
+  breakDuration: 5
   curve:
     serializedVersion: 2
     m_Curve:
@@ -1833,6 +1833,7 @@ MonoBehaviour:
   cameraCamera: {fileID: 1396538533943007744}
   animator: {fileID: 4230928852601219539}
   brokenScreen: {fileID: 811850345106232761}
+  detectThinksTheresThingToDo: 0
   wallChecker: {fileID: 836218901342159708}
 --- !u!1 &7761598825219965903
 GameObject:
