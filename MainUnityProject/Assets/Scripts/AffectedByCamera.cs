@@ -6,7 +6,6 @@ public class AffectedByCamera : CameraListener
 {
     public CameraAction[] actions;
     int index;
-    bool doingSomething;
 
     void Update()
     {
@@ -41,13 +40,13 @@ public class AffectedByCamera : CameraListener
     
     public override void OnTakePicture()
     {
-        if (doingSomething) return;
+        if (doingStuff) return;
             StartCoroutine(DoThing());
     }
 
     public IEnumerator DoThing()
     {
-        doingSomething = true;
+        doingStuff = true;
         bool keepGoing = false;
         do
         {
@@ -63,6 +62,6 @@ public class AffectedByCamera : CameraListener
             wantsToBeSeen = index < actions.Length;
         } while (keepGoing);
 
-        doingSomething = false;
+        doingStuff = false;
     }
 }

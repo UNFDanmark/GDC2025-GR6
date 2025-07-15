@@ -545,6 +545,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1552574621213903828, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552574621213903828, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552574621213903828, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552574621213903828, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.07374656
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552574621213903828, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22105041
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552574621213903828, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8400924
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932210188152331644, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7784242184622962230, guid: df4e3da24b67e204e8e624b135079af2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.95752
@@ -2252,6 +2280,7 @@ MonoBehaviour:
   distanceToRegisterPicture: 22.6
   wantsToBeSeen: 1
   seeDist: 3.8
+  doingStuff: 0
   actions:
   - jumpTo: 0
     waitFor: 0
@@ -2431,6 +2460,7 @@ MonoBehaviour:
   distanceToRegisterPicture: 6.95
   wantsToBeSeen: 0
   seeDist: 3.8
+  doingStuff: 0
   actions:
   - jumpTo: 0
     waitFor: 0
@@ -2512,6 +2542,7 @@ MonoBehaviour:
   distanceToRegisterPicture: 6.95
   wantsToBeSeen: 0
   seeDist: 3.8
+  doingStuff: 0
   actions:
   - jumpTo: 0
     waitFor: 0
@@ -3385,6 +3416,7 @@ MonoBehaviour:
   distanceToRegisterPicture: 6.95
   wantsToBeSeen: 0
   seeDist: 3.8
+  doingStuff: 0
   actions:
   - jumpTo: 0
     waitFor: 0
