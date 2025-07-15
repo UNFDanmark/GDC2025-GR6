@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -22,6 +23,8 @@ public class AffectedByCamera : CameraListener
                 break;
             case CameraAction.CameraFunction.MakeTallyHallReference:
                 RenderSettings.fog = true;
+                RenderSettings.ambientSkyColor = Color.black;
+                SpawnPointManger.instance.count = true;
                 break;
             
         }
