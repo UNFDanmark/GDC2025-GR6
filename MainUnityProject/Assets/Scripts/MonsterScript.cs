@@ -11,10 +11,13 @@ public class MonsterScript : CameraListener
     public float farAwaySpeed;
     public float nearSpeed;
     public float nearDistance;
+    public float closeGrowlDistance;
     public float jumpscareDistance;
 
     public bool scared;
     bool farAwayLastTime;
+    bool doneNormalGrowl;
+    bool doneCloseGrowl;
     void Start()
     {
         instance = this;
@@ -34,6 +37,8 @@ public class MonsterScript : CameraListener
         if (PlayerMovement.instance.jumpscared) return;
         
         agent.SetDestination(PlayerMovement.instance.transform.position);
+        if (agent.remainingDistance <= 0.03f)
+            return;
         
         if (agent.remainingDistance > nearDistance)
         {
@@ -43,14 +48,28 @@ public class MonsterScript : CameraListener
         else if (agent.remainingDistance < jumpscareDistance && agent.remainingDistance != 0)
         {
             PlayerMovement.instance.JumpScare();
+            GetComponent<MonsterAudio>().PlayJumpscareAudio();
             agent.SetDestination(transform.position);
         }
         else
         {
+            if (!doneNormalGrowl)
+            {
+                doneNormalGrowl = true;
+                GetComponent<MonsterAudio>().PlayGrowlAudio();
+                print("asd");
+            }
             agent.speed = nearSpeed;
             if (farAwayLastTime || scared)
                 agent.velocity = agent.velocity.normalized * nearSpeed;
             farAwayLastTime = false;
+        }
+
+        if (agent.remainingDistance < closeGrowlDistance && !doneCloseGrowl)
+        {
+            GetComponent<MonsterAudio>().PlayGrowlNearAudio();
+            doneCloseGrowl = true;
+            print("asdsadasds");
         }
     }
 
@@ -70,5 +89,8 @@ public class MonsterScript : CameraListener
         agent.Warp(spawnPoint.position);
         collider.enabled = true;
         rb.linearVelocity = Vector3.down;
+        GetComponent<MonsterAudio>().PlayGrowlFarAudio();
+        doneNormalGrowl = false;
+        doneCloseGrowl = false;
     }
 }

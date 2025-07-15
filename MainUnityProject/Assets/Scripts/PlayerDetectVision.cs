@@ -46,7 +46,7 @@ public class PlayerDetectVision : MonoBehaviour
                 if (hitSomething && hit.collider.TryGetComponent<CameraListener>(out CameraListener listener))
                 {
                     listener.OnCouldBeSeen();
-                    if (takingPicture && !thingsSeen.Contains(listener))
+                    if (takingPicture && !thingsSeen.Contains(listener) && (listener.transform.position - transform.position).magnitude < listener.distanceToRegisterPicture)
                     {
                         listener.OnTakePicture();
                         thingsSeen.Add(listener);

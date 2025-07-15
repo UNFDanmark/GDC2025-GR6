@@ -6,6 +6,7 @@ public class CameraAction
     public enum CameraFunction { Destroy, Activate, DeActivate, Jump, MakeTallyHallReference }
 
     public int jumpTo = -1;
+    public float waitFor;
     public bool continueToNextAction;
     public GameObject affectedObject;
     public CameraFunction action;
