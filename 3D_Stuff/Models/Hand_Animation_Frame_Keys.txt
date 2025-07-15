@@ -1,0 +1,5 @@
+- Walk cycle
+	- Frame 0-20
+
+- Jumpscare
+	- Frame 30-40
