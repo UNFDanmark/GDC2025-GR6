@@ -45,7 +45,7 @@ public class MonsterScript : CameraListener
             agent.speed = farAwaySpeed;
             farAwayLastTime = true;
         }
-        else if (agent.remainingDistance < jumpscareDistance && agent.remainingDistance != 0)
+        else if (agent.remainingDistance < jumpscareDistance && agent.remainingDistance != 0 && (agent.transform.position - transform.position).magnitude < jumpscareDistance + 1)
         {
             PlayerMovement.instance.JumpScare();
             GetComponent<MonsterAudio>().PlayJumpscareAudio();
@@ -57,7 +57,6 @@ public class MonsterScript : CameraListener
             {
                 doneNormalGrowl = true;
                 GetComponent<MonsterAudio>().PlayGrowlAudio();
-                print("asd");
             }
             agent.speed = nearSpeed;
             if (farAwayLastTime || scared)
@@ -69,7 +68,6 @@ public class MonsterScript : CameraListener
         {
             GetComponent<MonsterAudio>().PlayGrowlNearAudio();
             doneCloseGrowl = true;
-            print("asdsadasds");
         }
     }
 

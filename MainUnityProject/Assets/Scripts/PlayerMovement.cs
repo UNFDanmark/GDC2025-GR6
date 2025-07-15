@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public bool jumpscared;
     PlayerAudio playerAudio;
     public GameObject cameraObject;
+    public CameraBlitz blitz;
 
     void Awake()
     {

@@ -8,6 +8,7 @@ public class CameraBlitz : MonoBehaviour
     public float maxBlitz;
     public float blitzAnimationDuration;
     public float blitzCooldown;
+    public float breakDuration;
     public AnimationCurve curve;
 
     public Light light;
@@ -16,8 +17,10 @@ public class CameraBlitz : MonoBehaviour
     public PlayerDetectVision playerVision;
     public CameraCamera cameraCamera;
     public Animator animator;
+    public GameObject brokenScreen;
     float blitzAnimationProgress;
     float blitzCooldownProgress;
+    float breakProgress;
     bool playingAnimation;
 
     PlayerAudio cameraAudio;
@@ -35,9 +38,15 @@ public class CameraBlitz : MonoBehaviour
     {
         blitzCooldownProgress -= Time.deltaTime;
         blitzAnimationProgress -= Time.deltaTime;
+        breakProgress -= Time.deltaTime;
+
+        if (breakProgress > 0)
+            brokenScreen.SetActive(true);
+        else
+            brokenScreen.SetActive(false);
+        
         if (blitzInput.WasPressedThisFrame() && blitzCooldownProgress <= 0 && wallChecker.touching.Count == 0)
         {
-            cameraAudio.PlayCameraAudio();
             BeginBlitz();
         }
 
@@ -52,20 +61,31 @@ public class CameraBlitz : MonoBehaviour
         }
     }
 
+    public void Break()
+    {
+        breakProgress = breakDuration;
+    }
+
     void SetIntensity(float v)
     {
         light.intensity = v;
+        if (breakProgress > 0)
+            light.intensity = v / 6f;
     }
 
     void BeginBlitz()
     {
+        if (breakProgress <= 0)
+        {
+            playerVision.Detect(true);
+            cameraCamera.gameObject.SetActive(true);
+            StartCoroutine(cameraCamera.TakePicture());
+            animator.SetTrigger("Press");
+            cameraAudio.PlayCameraAudio();
+            SpawnPointManger.instance.PictureTaken();
+        }
         blitzCooldownProgress = blitzCooldown;
         blitzAnimationProgress = blitzAnimationDuration;
         playingAnimation = true;
-        playerVision.Detect(true);
-        cameraCamera.gameObject.SetActive(true);
-        StartCoroutine(cameraCamera.TakePicture());
-        animator.SetTrigger("Press");
-        SpawnPointManger.instance.PictureTaken();
     }
 }
