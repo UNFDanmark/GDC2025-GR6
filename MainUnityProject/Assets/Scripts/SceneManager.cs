@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 public class SceneManager  : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public GameObject logo, controlsmenu, playbutoon, quitbutton, controlsbutton, backbutton;
+    
     void Start()
     {
         
@@ -24,4 +27,27 @@ public class SceneManager  : MonoBehaviour
     {
         Application.Quit();
     }
+    
+    public void OpenControlsMenu()
+    {
+        logo.SetActive(false);
+        playbutoon.SetActive(false);
+        quitbutton.SetActive(false);
+        controlsbutton.SetActive(false);
+        backbutton.SetActive(true);
+        controlsmenu.SetActive(true);
+        logo.SetActive(false);
+    }
+    
+    public void CloseControlsMenu()
+    {
+        logo.SetActive(true);
+        playbutoon.SetActive(true);
+        quitbutton.SetActive(true);
+        controlsbutton.SetActive(true);
+        backbutton.SetActive(false);
+        controlsmenu.SetActive(false);
+        logo.SetActive(true);
+    }
+        
 }
