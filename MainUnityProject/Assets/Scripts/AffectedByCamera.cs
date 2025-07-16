@@ -7,6 +7,12 @@ public class AffectedByCamera : CameraListener
     public CameraAction[] actions;
     int index;
 
+    public override void Start()
+    {
+        base.Start();
+        DoAction(new CameraAction(){action = CameraAction.CameraFunction.MakeTallyHallReference});
+    }
+
     void Update()
     {
         wantsToBeSeen = index < actions.Length;

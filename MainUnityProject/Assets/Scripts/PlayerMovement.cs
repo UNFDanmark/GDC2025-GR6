@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (jumpscared) return;
+        if (jumpscared || !characterController.enabled) return;
         Vector2 moveDirection = moveInput.ReadValue<Vector2>();
         if (moveDirection != Vector2.zero) playerAudio.Moving();
         Vector3 lookDirection = playerLook.lookDirection2D;
@@ -55,17 +55,16 @@ public class PlayerMovement : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            jumpscared = false;
-            cameraObject.SetActive(true);
-            screenStatic.SetActive(false);
             characterController.enabled = false;
             transform.position = spawn.position;
             MonsterScript.instance.UnJumpscare();
             playerLook.horizontalAngle = 90f;
             playerLook.verticalAngle = 0f;
-            yield return new WaitForSeconds(1f);
+            yield return null;
         }
-
+        jumpscared = false;
+        cameraObject.SetActive(true);
+        screenStatic.SetActive(false);
         characterController.enabled = true;
     }
     
