@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -49,16 +51,22 @@ public class PlayerMovement : MonoBehaviour
         screenStatic.SetActive(true);
     }
 
-    public void StopScreenStatic()
+    public IEnumerator StopScreenStatic()
     {
-        print("uh");
-        jumpscared = false;
-        cameraObject.SetActive(true);
-        screenStatic.SetActive(false);
-        transform.position = spawn.position;
-        MonsterScript.instance.UnJumpscare();
-        playerLook.horizontalAngle = 90f;
-        playerLook.verticalAngle = 0f;
+        for (int i = 0; i < 2; i++)
+        {
+            jumpscared = false;
+            cameraObject.SetActive(true);
+            screenStatic.SetActive(false);
+            characterController.enabled = false;
+            transform.position = spawn.position;
+            MonsterScript.instance.UnJumpscare();
+            playerLook.horizontalAngle = 90f;
+            playerLook.verticalAngle = 0f;
+            yield return new WaitForSeconds(1f);
+        }
+
+        characterController.enabled = true;
     }
     
     public void JumpScare()

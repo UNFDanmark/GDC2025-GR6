@@ -9,6 +9,6 @@ public class JumpscareAnimations : MonoBehaviour
 
     public void ReDoEverything()
     {
-        PlayerMovement.instance.StopScreenStatic();
+        StartCoroutine(PlayerMovement.instance.StopScreenStatic());
     }
 }

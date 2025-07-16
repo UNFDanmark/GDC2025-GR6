@@ -12,7 +12,7 @@ public class AffectedByCamera : CameraListener
         wantsToBeSeen = index < actions.Length;
     }
 
-    public static void DoAction(CameraAction action)
+    public void DoAction(CameraAction action)
     {
         switch (action.action)
         {
@@ -40,7 +40,7 @@ public class AffectedByCamera : CameraListener
                 PlayerMovement.instance.ScreenStatic();
                 break;
             case CameraAction.CameraFunction.JingleJangleTheJonglerReturns:
-                PlayerMovement.instance.StopScreenStatic();
+                StartCoroutine(PlayerMovement.instance.StopScreenStatic());
                 break;
         }
     }
@@ -65,7 +65,9 @@ public class AffectedByCamera : CameraListener
                 index = actions[index].jumpTo - 1;
             if (actions[index].waitFor > 0)
                 yield return new WaitForSeconds(actions[index].waitFor);
-            index++;
+            if (actions[index].action != CameraAction.CameraFunction.EatPizza)
+                index++;
+            
             wantsToBeSeen = index < actions.Length;
         } while (keepGoing);
 
