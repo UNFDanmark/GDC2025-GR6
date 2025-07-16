@@ -474,7 +474,7 @@ MonoBehaviour:
   isMonster: 1
   collider: {fileID: 3317590999980031339}
   farAwaySpeed: 20
-  nearSpeed: 6
+  nearSpeed: 9.5
   nearDistance: 35
   closeGrowlDistance: 10
   fixDistance: 18
@@ -484,6 +484,7 @@ MonoBehaviour:
   animator: {fileID: 4729752890637295479}
   movAnim: {fileID: 276400265524171259}
   jumpscareLight: {fileID: 3091464987214013647}
+  weakened: 0
   scared: 0
 --- !u!54 &3519287237222466644
 Rigidbody:
