@@ -74,7 +74,7 @@ public class PlayerDetectVision : MonoBehaviour
             PlayerMovement.instance.blitz.detectThinksTheresThingToDo = true;
             if (takingPicture)
                 closestObj.OnTakePicture();
-            if (closestObj.doingStuff) PlayerMovement.instance.blitz.detectThinksTheresThingToDo = false;
+            if (closestObj.doingStuff || closestObj.isMonster) PlayerMovement.instance.blitz.detectThinksTheresThingToDo = false;
         }
         else PlayerMovement.instance.blitz.detectThinksTheresThingToDo = false;
     }

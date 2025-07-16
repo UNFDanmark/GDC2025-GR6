@@ -9,6 +9,7 @@ public class CameraListener : MonoBehaviour
     public bool wantsToBeSeen = true;
     public float seeDist = 3.8f;
     public bool doingStuff;
+    public bool isMonster;
     bool drawGizmos;
 
     public virtual void Start()

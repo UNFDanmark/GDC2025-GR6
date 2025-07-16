@@ -35,6 +35,13 @@ public class AffectedByCamera : CameraListener
                 SpawnPointManger.instance.SpawnAt(SpawnPointManger.instance.furthestPoint);
                 PlayerMovement.instance.blitz.Break();
                 break;
+            case CameraAction.CameraFunction.JingleJangle:
+                MonsterScript.instance.OnTakePicture();
+                PlayerMovement.instance.ScreenStatic();
+                break;
+            case CameraAction.CameraFunction.JingleJangleTheJonglerReturns:
+                PlayerMovement.instance.StopScreenStatic();
+                break;
         }
     }
     
