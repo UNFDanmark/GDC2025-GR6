@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class WalkIntoItTrigger : MonoBehaviour
 {
     public CameraAction[] actions;
@@ -46,6 +47,12 @@ public class WalkIntoItTrigger : MonoBehaviour
                 MonsterScript.instance.nearSpeed = 2f;
                 MusicManager.instance.SwitchToIntenseDarknessMusic();
                 PlayerMovement.instance.blitz.Break();
+                break;
+            case CameraAction.CameraFunction.Win:
+                if (MonsterScript.instance.diedEver)
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene");
+                else
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene 1");
                 break;
         }
     }
