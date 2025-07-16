@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1406c61e-2724-4c4f-a812-3b6579421b14" name="Changes" comment="" />
+    <list default="true" id="1406c61e-2724-4c4f-a812-3b6579421b14" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../2D/menu ui/credits with 34 rules.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../2D/menu ui/credits with 34 rules.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2D/menu ui/credits.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../2D/menu ui/credits.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scenes/Official Scenes/Credits scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Official Scenes/Credits scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrolling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scrolling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProjectSettings/TimelineSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/CameraBlitz.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/creditsmanager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/scrolling.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -15,14 +34,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1406c61e-2724-4c4f-a812-3b6579421b14" name="Changes" comment="" />
@@ -32,8 +57,12 @@
       <updated>1752691606021</updated>
       <workItem from="1752691607455" duration="38000" />
       <workItem from="1752691657931" duration="12000" />
+      <workItem from="1752692308011" duration="1294000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">

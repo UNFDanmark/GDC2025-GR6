@@ -20,7 +20,7 @@ public class SceneManager  : MonoBehaviour
 
     public void NewGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Programmering");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Gametest");
     }
 
     public void QuitGame()
