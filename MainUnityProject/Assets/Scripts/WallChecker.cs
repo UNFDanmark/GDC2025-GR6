@@ -14,4 +14,15 @@ public class WallChecker : MonoBehaviour
     {
         touching.Remove(other);
     }
+
+    void Update()
+    {
+        for (int i = 0; i < touching.Count; i++)
+        {
+            if (touching[i] == null)
+            {
+                touching.RemoveAt(i);
+            }
+        }
+    }
 }
