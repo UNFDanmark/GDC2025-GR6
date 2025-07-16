@@ -13,7 +13,7 @@ public class MusicManager : MonoBehaviour
 
     public int SoundtrackNumberToPlay = 1;
 
-    void Start()
+    void Awake()
     {
         instance = this;
     }

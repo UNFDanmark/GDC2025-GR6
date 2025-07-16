@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -19,7 +20,9 @@ public class CameraBlitz : MonoBehaviour
     public Animator animator;
     public GameObject brokenScreen;
     public GameObject blinker;
+    public GameObject blinkyStinky;
     public bool detectThinksTheresThingToDo;
+    public bool dictatorThinksSame;
     float blitzAnimationProgress;
     float blitzCooldownProgress;
     public float breakProgress;
@@ -47,10 +50,15 @@ public class CameraBlitz : MonoBehaviour
         else
             brokenScreen.SetActive(false);
 
-        if (detectThinksTheresThingToDo)
+        if ((dictatorThinksSame || detectThinksTheresThingToDo) && !MonsterScript.instance.weakened)
             blinker.SetActive(true);
         else
             blinker.SetActive(false);
+        
+        if ((dictatorThinksSame || detectThinksTheresThingToDo) && MonsterScript.instance.weakened)
+            blinkyStinky.SetActive(true);
+        else
+            blinkyStinky.SetActive(false);
         
         if (blitzInput.WasPressedThisFrame() && blitzCooldownProgress <= 0 && wallChecker.touching.Count == 0)
         {
@@ -66,6 +74,11 @@ public class CameraBlitz : MonoBehaviour
                 SetIntensity(0f);
             }
         }
+    }
+
+    void LateUpdate()
+    {
+        dictatorThinksSame = false;
     }
 
     public void Break()

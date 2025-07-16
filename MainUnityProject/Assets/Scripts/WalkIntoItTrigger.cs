@@ -41,6 +41,12 @@ public class WalkIntoItTrigger : MonoBehaviour
             case CameraAction.CameraFunction.Key:
                 PlayerMovement.instance.OpenLastDoorFromKeysWhichIsAFuctionThatShouldBeInPlayerMovement();
                 break;
+            case CameraAction.CameraFunction.ChaseScene:
+                MonsterScript.instance.weakened = true;
+                MonsterScript.instance.nearSpeed = 2f;
+                MusicManager.instance.SwitchToIntenseDarknessMusic();
+                PlayerMovement.instance.blitz.Break();
+                break;
         }
     }
 

@@ -19,6 +19,7 @@ public class MonsterScript : CameraListener
     public Animator animator;
     public Animator movAnim;
     public GameObject jumpscareLight;
+    public bool weakened;
 
     public bool scared;
     bool farAwayLastTime;
@@ -80,7 +81,7 @@ public class MonsterScript : CameraListener
             doneCloseGrowl = true;
         }
 
-        if (agent.enabled && agent.remainingDistance < closeGrowlDistance)
+        if (agent.enabled && agent.remainingDistance < closeGrowlDistance && !weakened)
         {
             PlayerMovement.instance.blitz.breakProgress = -1f;
         }

@@ -7,15 +7,26 @@ public class AffectedByCamera : CameraListener
     public CameraAction[] actions;
     int index;
 
+    public bool justBlink;
+
     public override void Start()
     {
         base.Start();
-        //DoAction(new CameraAction(){action = CameraAction.CameraFunction.MakeTallyHallReference});
+        DoAction(new CameraAction(){action = CameraAction.CameraFunction.MakeTallyHallReference});
     }
 
     void Update()
     {
         wantsToBeSeen = index < actions.Length;
+        if (justBlink)
+        {
+            Vector3 dif = transform.position - PlayerMovement.instance.transform.position;
+            Vector3 dif2D = new Vector3(dif.x, 0, dif.y);
+            if (dif2D.magnitude <= distanceToRegisterPicture)
+            {
+                PlayerMovement.instance.blitz.dictatorThinksSame = true;
+            }
+        }
     }
 
     public void DoAction(CameraAction action)
@@ -52,6 +63,12 @@ public class AffectedByCamera : CameraListener
                 break;
             case CameraAction.CameraFunction.Key:
                 PlayerMovement.instance.OpenLastDoorFromKeysWhichIsAFuctionThatShouldBeInPlayerMovement();
+                break;
+            case CameraAction.CameraFunction.ChaseScene:
+                MonsterScript.instance.weakened = true;
+                MonsterScript.instance.nearSpeed = 3f;
+                MusicManager.instance.SwitchToIntenseDarknessMusic();
+                PlayerMovement.instance.blitz.Break();
                 break;
         }
     }
