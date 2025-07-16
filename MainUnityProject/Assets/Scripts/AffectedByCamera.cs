@@ -35,6 +35,9 @@ public class AffectedByCamera : CameraListener
                 RenderSettings.fog = true;
                 RenderSettings.ambientSkyColor = Color.black;
                 SpawnPointManger.instance.count = true;
+                GameObject.Find("MusicManager").GetComponent<MusicManager>().SoundtrackNumberToPlay = 3;
+                GameObject.Find("MusicManager").GetComponent<MusicManager>().PlayDarknessMusic();
+                
                 break;
             case CameraAction.CameraFunction.CallBBGrl:
                 print("peepeepoopoo");

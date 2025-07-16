@@ -23,32 +23,37 @@ public class MusicManager : MonoBehaviour
     {
         if (SoundtrackNumberToPlay == 1)
         {
+            MusicAudioSource.Stop();
             MusicAudioSource.PlayOneShot(Title);
             SoundtrackNumberToPlay = 0;
         }
         
         if (SoundtrackNumberToPlay == 2)
         {
+            MusicAudioSource.Stop();
+            
             MusicAudioSource.PlayOneShot(Intro);
             SoundtrackNumberToPlay = 0;
         }
         
         if (SoundtrackNumberToPlay == 3)
         {
+            MusicAudioSource.Stop();
+            
             MusicAudioSource.PlayOneShot(Ambience);
             SecondaryMusicAudioSource.PlayOneShot(IntenseAmbience);
             SoundtrackNumberToPlay = 0;
         }
     }
 
-    void PlayDarknessMusic()
+    public void PlayDarknessMusic()
     {
         SoundtrackNumberToPlay = 3;
         SecondaryMusicAudioSource.volume = 0;
         MusicAudioSource.volume = 1;
     }
     
-    void SwitchToIntenseDarknessMusic()
+    public void SwitchToIntenseDarknessMusic()
     {
         SecondaryMusicAudioSource.volume = 1;
         MusicAudioSource.volume = 0;

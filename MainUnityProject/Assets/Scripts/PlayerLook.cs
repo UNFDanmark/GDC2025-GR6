@@ -47,6 +47,11 @@ public class PlayerLook : MonoBehaviour
             lookDirection2D = new Vector3(lookDirection3D.x, 0, lookDirection3D.z).normalized;
         }
 
+        if (upArr.WasPerformedThisFrame())
+        {
+            GameObject.Find("MusicManager").GetComponent<MusicManager>().SwitchToIntenseDarknessMusic();
+        }
+        
         if (upArr.IsPressed())
         {
             xSensitivity += 0.3f * Time.deltaTime;
