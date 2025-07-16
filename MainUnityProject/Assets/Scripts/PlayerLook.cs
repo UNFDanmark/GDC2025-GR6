@@ -29,7 +29,7 @@ public class PlayerLook : MonoBehaviour
     {
         if (PlayerMovement.instance.jumpscared)
         {
-            transform.LookAt(MonsterScript.instance.transform);
+            transform.LookAt(MonsterScript.instance.jumpscarePoint.transform);
         }
         else
         {

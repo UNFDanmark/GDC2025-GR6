@@ -13,6 +13,7 @@ public class MonsterScript : CameraListener
     public float nearDistance;
     public float closeGrowlDistance;
     public float jumpscareDistance;
+    public GameObject jumpscarePoint;
 
     public bool scared;
     bool farAwayLastTime;
