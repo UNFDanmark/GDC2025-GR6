@@ -54,14 +54,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void StopScreenStatic()
     {
-        print("gdai");
         characterController.enabled = false;
         transform.position = spawn.position;
         MonsterScript.instance.UnJumpscare();
         playerLook.horizontalAngle = 90f;
         playerLook.verticalAngle = 0f;
         jumpscared = false;
-        print("hello");
         cameraObject.SetActive(true);
         screenStatic.SetActive(false);
         characterController.enabled = true;
