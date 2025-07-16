@@ -12,6 +12,7 @@ public class MonsterScript : CameraListener
     public float nearSpeed;
     public float nearDistance;
     public float closeGrowlDistance;
+    public float fixDistance;
     public float jumpscareDistance;
     public GameObject jumpscarePoint;
     public Transform looker;
@@ -77,6 +78,11 @@ public class MonsterScript : CameraListener
         {
             GetComponent<MonsterAudio>().PlayGrowlNearAudio();
             doneCloseGrowl = true;
+        }
+
+        if (agent.enabled && agent.remainingDistance < closeGrowlDistance)
+        {
+            PlayerMovement.instance.blitz.breakProgress = -1f;
         }
     }
 

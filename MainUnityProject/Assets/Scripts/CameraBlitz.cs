@@ -22,7 +22,7 @@ public class CameraBlitz : MonoBehaviour
     public bool detectThinksTheresThingToDo;
     float blitzAnimationProgress;
     float blitzCooldownProgress;
-    float breakProgress;
+    public float breakProgress;
     bool playingAnimation;
 
     PlayerAudio cameraAudio;
