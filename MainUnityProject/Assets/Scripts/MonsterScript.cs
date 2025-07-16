@@ -20,6 +20,7 @@ public class MonsterScript : CameraListener
     public Animator movAnim;
     public GameObject jumpscareLight;
     public bool weakened;
+    public bool diedEver;
 
     public bool scared;
     bool farAwayLastTime;
@@ -61,6 +62,7 @@ public class MonsterScript : CameraListener
             animator.SetTrigger("Jumpscare");
             movAnim.SetTrigger("Jumpscare");
             jumpscareLight.SetActive(true);
+            diedEver = true;
         }
         else
         {
