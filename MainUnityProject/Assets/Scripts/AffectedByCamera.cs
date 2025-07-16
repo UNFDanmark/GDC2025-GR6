@@ -72,9 +72,9 @@ public class AffectedByCamera : CameraListener
                 break;
             case CameraAction.CameraFunction.Win:
                 if (MonsterScript.instance.diedEver)
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene");
-                else
                     UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene 1");
+                else
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene");
                 break;
         }
     }
