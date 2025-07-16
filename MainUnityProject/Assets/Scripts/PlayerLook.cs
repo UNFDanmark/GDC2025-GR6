@@ -9,8 +9,8 @@ public class PlayerLook : MonoBehaviour
     public float ySensitivity;
     public float minVerticalAngle;
     public float maxVerticalAngle;
-    float verticalAngle;
-    float horizontalAngle;
+    public float verticalAngle;
+    public float horizontalAngle;
 
     public Transform facingPoint;
     public Vector3 lookDirection3D;
@@ -22,6 +22,11 @@ public class PlayerLook : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         mouseInteraction.Enable();
+    }
+
+    public void LookAt()
+    {
+        
     }
 
     // Update is called once per frame

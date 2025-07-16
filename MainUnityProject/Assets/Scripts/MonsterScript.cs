@@ -14,6 +14,10 @@ public class MonsterScript : CameraListener
     public float closeGrowlDistance;
     public float jumpscareDistance;
     public GameObject jumpscarePoint;
+    public Transform looker;
+    public Animator animator;
+    public Animator movAnim;
+    public GameObject jumpscareLight;
 
     public bool scared;
     bool farAwayLastTime;
@@ -31,6 +35,7 @@ public class MonsterScript : CameraListener
     {
         if(!scared)
             FollowPlayer();
+        looker.LookAt(PlayerMovement.instance.transform);
     }
 
     void FollowPlayer()
@@ -50,7 +55,10 @@ public class MonsterScript : CameraListener
         {
             PlayerMovement.instance.JumpScare();
             GetComponent<MonsterAudio>().PlayJumpscareAudio();
-            agent.SetDestination(transform.position);
+            agent.enabled = false;
+            animator.SetTrigger("Jumpscare");
+            movAnim.SetTrigger("Jumpscare");
+            jumpscareLight.SetActive(true);
         }
         else
         {
@@ -65,7 +73,7 @@ public class MonsterScript : CameraListener
             farAwayLastTime = false;
         }
 
-        if (agent.remainingDistance < closeGrowlDistance && !doneCloseGrowl)
+        if (agent.enabled && agent.remainingDistance < closeGrowlDistance && !doneCloseGrowl)
         {
             GetComponent<MonsterAudio>().PlayGrowlNearAudio();
             doneCloseGrowl = true;
@@ -91,5 +99,10 @@ public class MonsterScript : CameraListener
         GetComponent<MonsterAudio>().PlayGrowlFarAudio();
         doneNormalGrowl = false;
         doneCloseGrowl = false;
+    }
+
+    public void UnJumpscare()
+    {
+        OnTakePicture();
     }
 }

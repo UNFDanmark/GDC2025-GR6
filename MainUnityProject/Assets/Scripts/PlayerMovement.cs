@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerAudio playerAudio;
     public GameObject cameraObject;
     public CameraBlitz blitz;
+    public GameObject screenStatic;
+    public Transform spawn;
 
     void Awake()
     {
@@ -42,9 +44,26 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(fallSpeed * Time.deltaTime * Vector3.down);
     }
 
+    public void ScreenStatic()
+    {
+        screenStatic.SetActive(true);
+    }
+
+    public void StopScreenStatic()
+    {
+        print("uh");
+        jumpscared = false;
+        cameraObject.SetActive(true);
+        screenStatic.SetActive(false);
+        transform.position = spawn.position;
+        MonsterScript.instance.UnJumpscare();
+        playerLook.horizontalAngle = 90f;
+        playerLook.verticalAngle = 0f;
+    }
+    
     public void JumpScare()
     {
-        Destroy(cameraObject);
+        cameraObject.SetActive(false);
         jumpscared = true;
     }
 }

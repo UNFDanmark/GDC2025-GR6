@@ -87,10 +87,14 @@ public class CameraBlitz : MonoBehaviour
             playerVision.Detect(true);
             cameraCamera.gameObject.SetActive(true);
             StartCoroutine(cameraCamera.TakePicture());
-            animator.SetTrigger("Press");
             cameraAudio.PlayCameraAudio();
             SpawnPointManger.instance.PictureTaken();
         }
+        else
+        {
+            cameraAudio.PlayCameraFail();
+        }
+        animator.SetTrigger("Press");
         blitzCooldownProgress = blitzCooldown;
         blitzAnimationProgress = blitzAnimationDuration;
         playingAnimation = true;

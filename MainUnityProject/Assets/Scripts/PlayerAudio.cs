@@ -16,7 +16,7 @@ public class PlayerAudio : MonoBehaviour
     public float Counter;
     
     [Space(10)] public AudioSource ShutterSource;
-    public AudioClip CameraShutter;
+    public AudioClip CameraShutter, CameraFail;
 
     float CameraPitchValue = 1.0f;
     
@@ -61,5 +61,12 @@ public class PlayerAudio : MonoBehaviour
         CameraPitchValue = Random.Range(1 - CameraPitchRange, 1 + CameraPitchRange);
         ShutterSource.pitch = CameraPitchValue;
         ShutterSource.PlayOneShot(CameraShutter);
+    }
+    
+    public void PlayCameraFail()
+    {
+        CameraPitchValue = Random.Range(1 - CameraPitchRange, 1 + CameraPitchRange);
+        ShutterSource.pitch = CameraPitchValue;
+        ShutterSource.PlayOneShot(CameraFail);
     }
 }
