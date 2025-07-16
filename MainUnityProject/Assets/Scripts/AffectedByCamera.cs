@@ -10,7 +10,7 @@ public class AffectedByCamera : CameraListener
     public override void Start()
     {
         base.Start();
-        DoAction(new CameraAction(){action = CameraAction.CameraFunction.MakeTallyHallReference});
+        //DoAction(new CameraAction(){action = CameraAction.CameraFunction.MakeTallyHallReference});
     }
 
     void Update()
