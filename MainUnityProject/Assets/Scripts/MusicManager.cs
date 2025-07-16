@@ -7,8 +7,9 @@ public class MusicManager : MonoBehaviour
     public static MusicManager instance;
 
     public AudioSource MusicAudioSource;
+    public AudioSource SecondaryMusicAudioSource;
 
-    public AudioClip Title, Intro, Ambience;
+    public AudioClip Title, Intro, Ambience, IntenseAmbience;
 
     public int SoundtrackNumberToPlay = 1;
 
@@ -35,7 +36,21 @@ public class MusicManager : MonoBehaviour
         if (SoundtrackNumberToPlay == 3)
         {
             MusicAudioSource.PlayOneShot(Ambience);
+            SecondaryMusicAudioSource.PlayOneShot(IntenseAmbience);
             SoundtrackNumberToPlay = 0;
         }
+    }
+
+    void PlayDarknessMusic()
+    {
+        SoundtrackNumberToPlay = 3;
+        SecondaryMusicAudioSource.volume = 0;
+        MusicAudioSource.volume = 1;
+    }
+    
+    void SwitchToIntenseDarknessMusic()
+    {
+        SecondaryMusicAudioSource.volume = 1;
+        MusicAudioSource.volume = 0;
     }
 }
