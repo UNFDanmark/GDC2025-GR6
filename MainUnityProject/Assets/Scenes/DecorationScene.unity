@@ -228,10 +228,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WalkableMap 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5806371730398061205, guid: 936931097df925f4cb898da652c21d05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 90
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -545,7 +541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461298306289608642, guid: 31be82f87463e81409b11f1c16e85e26, type: 3}
       propertyPath: m_Name
-      value: CameraBlinkie
+      value: S
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
