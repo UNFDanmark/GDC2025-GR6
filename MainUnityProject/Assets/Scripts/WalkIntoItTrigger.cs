@@ -1,22 +1,11 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-public class AffectedByCamera : CameraListener
+public class WalkIntoItTrigger : MonoBehaviour
 {
     public CameraAction[] actions;
     int index;
-
-    public override void Start()
-    {
-        base.Start();
-        //DoAction(new CameraAction(){action = CameraAction.CameraFunction.MakeTallyHallReference});
-    }
-
-    void Update()
-    {
-        wantsToBeSeen = index < actions.Length;
-    }
+    bool doingStuff;
 
     public void DoAction(CameraAction action)
     {
@@ -47,7 +36,6 @@ public class AffectedByCamera : CameraListener
                 PlayerMovement.instance.ScreenStatic();
                 break;
             case CameraAction.CameraFunction.JingleJangleTheJonglerReturns:
-                print("hi");
                 PlayerMovement.instance.StopScreenStatic();
                 break;
             case CameraAction.CameraFunction.Key:
@@ -55,12 +43,16 @@ public class AffectedByCamera : CameraListener
                 break;
         }
     }
-    
-    public override void OnTakePicture()
+
+    void OnTriggerEnter(Collider other)
     {
         if (doingStuff) return;
-            StartCoroutine(DoThing());
+        {
+            if (other.name == "Player")
+                StartCoroutine(DoThing());
+        }
     }
+    
 
     public IEnumerator DoThing()
     {
@@ -78,8 +70,6 @@ public class AffectedByCamera : CameraListener
                 yield return new WaitForSeconds(actions[index].waitFor);
             if (actions[index].action != CameraAction.CameraFunction.EatPizza)
                 index++;
-            
-            wantsToBeSeen = index < actions.Length;
         } while (keepGoing);
 
         doingStuff = false;

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -53,18 +52,16 @@ public class PlayerMovement : MonoBehaviour
         screenStatic.SetActive(true);
     }
 
-    public IEnumerator StopScreenStatic()
+    public void StopScreenStatic()
     {
-        for (int i = 0; i < 2; i++)
-        {
-            characterController.enabled = false;
-            transform.position = spawn.position;
-            MonsterScript.instance.UnJumpscare();
-            playerLook.horizontalAngle = 90f;
-            playerLook.verticalAngle = 0f;
-            yield return null;
-        }
+        print("gdai");
+        characterController.enabled = false;
+        transform.position = spawn.position;
+        MonsterScript.instance.UnJumpscare();
+        playerLook.horizontalAngle = 90f;
+        playerLook.verticalAngle = 0f;
         jumpscared = false;
+        print("hello");
         cameraObject.SetActive(true);
         screenStatic.SetActive(false);
         characterController.enabled = true;
