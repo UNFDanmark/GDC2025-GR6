@@ -49,6 +49,9 @@ public class AffectedByCamera : CameraListener
             case CameraAction.CameraFunction.JingleJangleTheJonglerReturns:
                 StartCoroutine(PlayerMovement.instance.StopScreenStatic());
                 break;
+            case CameraAction.CameraFunction.Key:
+                PlayerMovement.instance.OpenLastDoorFromKeysWhichIsAFuctionThatShouldBeInPlayerMovement();
+                break;
         }
     }
     

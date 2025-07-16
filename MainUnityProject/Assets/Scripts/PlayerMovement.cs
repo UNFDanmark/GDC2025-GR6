@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public CameraBlitz blitz;
     public GameObject screenStatic;
     public Transform spawn;
+    public GameObject finalDoor;
+    public GameObject finalLights;
 
     void Awake()
     {
@@ -66,6 +68,12 @@ public class PlayerMovement : MonoBehaviour
         cameraObject.SetActive(true);
         screenStatic.SetActive(false);
         characterController.enabled = true;
+    }
+
+    public void OpenLastDoorFromKeysWhichIsAFuctionThatShouldBeInPlayerMovement()
+    {
+        Destroy(finalDoor);
+        finalLights.SetActive(true);
     }
     
     public void JumpScare()
