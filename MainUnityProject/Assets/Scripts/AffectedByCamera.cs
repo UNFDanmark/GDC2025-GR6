@@ -35,12 +35,10 @@ public class AffectedByCamera : CameraListener
                 RenderSettings.fog = true;
                 RenderSettings.ambientSkyColor = Color.black;
                 SpawnPointManger.instance.count = true;
-                GameObject.Find("MusicManager").GetComponent<MusicManager>().SoundtrackNumberToPlay = 3;
-                GameObject.Find("MusicManager").GetComponent<MusicManager>().PlayDarknessMusic();
-                
+                MusicManager.instance.SoundtrackNumberToPlay = 3;
+                MusicManager.instance.PlayDarknessMusic();
                 break;
             case CameraAction.CameraFunction.CallBBGrl:
-                print("peepeepoopoo");
                 SpawnPointManger.instance.SpawnAt(SpawnPointManger.instance.furthestPoint);
                 PlayerMovement.instance.blitz.Break();
                 break;
@@ -66,6 +64,7 @@ public class AffectedByCamera : CameraListener
         bool keepGoing = false;
         do
         {
+            print(index);
             if (index == actions.Length)
                 break;
             DoAction(actions[index]);

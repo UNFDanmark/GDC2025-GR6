@@ -49,7 +49,7 @@ public class PlayerLook : MonoBehaviour
 
         if (upArr.WasPerformedThisFrame())
         {
-            GameObject.Find("MusicManager").GetComponent<MusicManager>().SwitchToIntenseDarknessMusic();
+            MusicManager.instance.SwitchToIntenseDarknessMusic();
         }
         
         if (upArr.IsPressed())

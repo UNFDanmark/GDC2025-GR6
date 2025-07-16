@@ -32,7 +32,7 @@ public class CameraBlitz : MonoBehaviour
     void Start()
     {
         blitzInput.Enable();
-        cameraAudio = GameObject.Find("Player").GetComponent<PlayerAudio>();
+        cameraAudio = PlayerMovement.instance.GetComponent<PlayerAudio>();
     }
 
     // Update is called once per frame
