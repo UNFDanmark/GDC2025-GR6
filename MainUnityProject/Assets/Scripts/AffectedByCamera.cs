@@ -44,7 +44,7 @@ public class AffectedByCamera : CameraListener
                 break;
             case CameraAction.CameraFunction.MakeTallyHallReference:
                 RenderSettings.fog = true;
-                RenderSettings.ambientSkyColor = Color.black;
+                //RenderSettings.ambientSkyColor = Color.black;
                 SpawnPointManger.instance.count = true;
                 MusicManager.instance.SoundtrackNumberToPlay = 3;
                 MusicManager.instance.PlayDarknessMusic();
