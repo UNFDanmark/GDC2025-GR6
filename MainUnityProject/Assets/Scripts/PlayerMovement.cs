@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform spawn;
     public GameObject finalDoor;
     public GameObject finalLights;
+    int keysCollected;
 
     void Awake()
     {
@@ -67,8 +68,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OpenLastDoorFromKeysWhichIsAFuctionThatShouldBeInPlayerMovement()
     {
-        Destroy(finalDoor);
-        finalLights.SetActive(true);
+        keysCollected++;
+        if (keysCollected >= 2)
+        {
+            Destroy(finalDoor);
+            finalLights.SetActive(true);
+        }
     }
     
     public void JumpScare()
