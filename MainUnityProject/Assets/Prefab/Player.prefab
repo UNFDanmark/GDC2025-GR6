@@ -389,7 +389,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 86470e5947782614ab371f171edf188a, type: 3}
   m_Resource: {fileID: 8300000, guid: 86470e5947782614ab371f171edf188a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.107
+  m_Volume: 0.185
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1022,8 +1022,8 @@ MonoBehaviour:
       m_Action: Mouse Interaction
       m_Flags: 8
     m_Flags: 0
-  xSensitivity: 1
-  ySensitivity: 1
+  xSensitivity: 0.4
+  ySensitivity: 0.4
   minVerticalAngle: -70
   maxVerticalAngle: 70
   verticalAngle: 0
@@ -1649,7 +1649,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.972549, g: 0.9019608, b: 0.6901961, a: 1}
-  m_Intensity: 2.44
+  m_Intensity: 3
   m_Range: 4.54
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
