@@ -71,6 +71,7 @@ public class AffectedByCamera : CameraListener
                 MonsterScript.instance.nearSpeed = 3f;
                 MusicManager.instance.SwitchToIntenseDarknessMusic();
                 PlayerMovement.instance.blitz.Break();
+                SpawnPointManger.instance.SpawnAt(action.affectedObject.transform);
                 break;
             case CameraAction.CameraFunction.Win:
                 if (MonsterScript.instance.diedEver)
