@@ -10,5 +10,9 @@ public class JumpscareAnimations : MonoBehaviour
     public void ReDoEverything()
     {
         PlayerMovement.instance.StopScreenStatic();
+        if (MonsterScript.instance.weakened)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene 2");
+        }
     }
 }
