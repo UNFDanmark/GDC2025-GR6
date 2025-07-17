@@ -63,6 +63,10 @@ public class MonsterScript : CameraListener
             movAnim.SetTrigger("Jumpscare");
             jumpscareLight.SetActive(true);
             diedEver = true;
+            if (weakened)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene 2");
+            }
         }
         else
         {
