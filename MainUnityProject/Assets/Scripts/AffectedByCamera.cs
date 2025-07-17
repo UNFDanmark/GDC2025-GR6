@@ -72,9 +72,16 @@ public class AffectedByCamera : CameraListener
                 break;
             case CameraAction.CameraFunction.Win:
                 if (MonsterScript.instance.diedEver)
+                {
+                    Cursor.lockState = CursorLockMode.None;
                     UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene 1");
+                }
                 else
+                {
+                    Cursor.lockState = CursorLockMode.None;
                     UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene");
+                }
+
                 break;
         }
     }

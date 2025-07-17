@@ -16,7 +16,7 @@ public class Creditsmanager : MonoBehaviour
     {
         if (esc.triggered)
         {
-            print("hi");
+            Cursor.lockState = CursorLockMode.None;
             UnityEngine.SceneManagement.SceneManager.LoadScene("Title Screen");
         }
     }

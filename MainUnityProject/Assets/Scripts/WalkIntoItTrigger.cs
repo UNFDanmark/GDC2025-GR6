@@ -50,9 +50,15 @@ public class WalkIntoItTrigger : MonoBehaviour
                 break;
             case CameraAction.CameraFunction.Win:
                 if (MonsterScript.instance.diedEver)
+                {
+                    Cursor.lockState = CursorLockMode.None;
                     UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene");
+                }
                 else
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene 1");
+                {
+                Cursor.lockState = CursorLockMode.None;
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Credits scene 1");
+                }
                 break;
         }
     }
