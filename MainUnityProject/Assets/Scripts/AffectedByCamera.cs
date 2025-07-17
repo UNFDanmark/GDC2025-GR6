@@ -43,11 +43,13 @@ public class AffectedByCamera : CameraListener
                 Destroy(action.affectedObject);
                 break;
             case CameraAction.CameraFunction.MakeTallyHallReference:
-                RenderSettings.fog = true;
-                //RenderSettings.ambientSkyColor = Color.black;
+                RenderSettings.ambientSkyColor = Color.black;
                 SpawnPointManger.instance.count = true;
                 MusicManager.instance.SoundtrackNumberToPlay = 3;
                 MusicManager.instance.PlayDarknessMusic();
+                RenderSettings.fog = true;
+                RenderSettings.fogDensity = 0.07f;
+
                 break;
             case CameraAction.CameraFunction.CallBBGrl:
                 SpawnPointManger.instance.SpawnAt(SpawnPointManger.instance.furthestPoint);
