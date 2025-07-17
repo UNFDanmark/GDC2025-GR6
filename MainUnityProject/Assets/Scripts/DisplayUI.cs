@@ -17,15 +17,22 @@ public class DisplayUI : MonoBehaviour
         
     }
 
-    void OnTriggerStay(Collider other)
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            print("hi");
             RequirementText.SetActive(true);
         }
-        else
-        {
-            RequirementText.SetActive(false);
-        }
+
     }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            print("Gooodbye");
+            RequirementText.SetActive(false);
+        }    }
 }
