@@ -26,6 +26,8 @@ public class PlayerLook : MonoBehaviour
         mouseInteraction.Enable();
         upArr.Enable();
         downArr.Enable();
+        xSensitivity = 0.4f;
+        ySensitivity = 0.4f;
     }
     
 
@@ -54,8 +56,8 @@ public class PlayerLook : MonoBehaviour
         
         if (upArr.IsPressed())
         {
-            xSensitivity += 0.3f * Time.deltaTime;
-            ySensitivity += 0.3f  * Time.deltaTime;
+            xSensitivity += 0.3f  *  Time.deltaTime;
+            ySensitivity += 0.3f  *  Time.deltaTime;
             xSensitivity = Mathf.Min(xSensitivity, maxSensitivity);
             ySensitivity = Mathf.Min(ySensitivity, maxSensitivity);
         } 
